@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <link href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/adf6e0e5b9.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Menu</a>
+          <form class="d-flex" role="search" id="city-form">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Type city"
+              aria-label="Search"
+              id="city-input"
+            />
+            <button type="submit" class="btn btn-warning">
+              🔍
+            </button>
+          </form>
+          <button type="submit" class="btn btn-info" id="location-button">
+            🌍 Current location
+          </button>
+        </div>
+      </nav>
+      <header>
+        <div class="row">
+          <div class="col-4">
+            <span class="title" id="city"> </span> <br />
+            <span class="current-date" id="date"></span>
+          </div>
+          <div class="col-4">
+            <i class="fa-solid fa-sun big"></i>
+            <span class="title" id="current-temperature">
+              <sup>
+                <small>
+                  °C
+                </small></sup
+              >
+            </span>
+          </div>
+          <div class="col-4">
+            <span id="general-description"> </span> <br />
+            Humidity: <span id="humidity"> </span>%<br />
+            Wind: <span id="wind"> </span>km/h
+          </div>
+        </div>
+      </header>
+      <div class="row">
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <i class="fa-solid fa-cloud-sun"></i> <br />
+              23°C <br />
+              Tomorrow
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <i class="fa-solid fa-cloud"></i><br />
+              21°C <br />
+              Friday
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <i class="fa-solid fa-cloud-showers-heavy"></i> <br />
+              18°C <br />
+              Saturday
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <i class="fa-solid fa-cloud-sun"></i> <br />
+              26°C <br />
+              Sunday
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <i class="fa-solid fa-sun"></i><br />
+              28°C <br />
+              Monday
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <i class="fa-solid fa-cloud-bolt"></i><br />
+              30°C <br />
+              Tuesday
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
