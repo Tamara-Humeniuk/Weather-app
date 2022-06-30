@@ -3,7 +3,7 @@
   <head>
     <title>Weather App</title>
     <meta charset="UTF-8" />
-    <link link rel="stylesheet" href="src/styles.css" />
+    
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -15,47 +15,34 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link link rel="stylesheet" href="src/styles.css" />
   </head>
 
   <body>
     <div class="container">
-      <nav class="navbar bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand">Menu</a>
-          <form class="d-flex" role="search" id="city-form">
+      <div class="app">
+           <form role="search" id="city-form">
             <input
-              class="form-control me-2"
               type="search"
               placeholder="Type city"
               aria-label="Search"
               id="city-input"
             />
-            <button type="submit" class="btn btn-warning">
-              🔍
+            <button type="submit">
+              🔍 Search
             </button>
           </form>
-          <button type="submit" class="btn btn-info" id="location-button">
-            🌍 Current location
-          </button>
-        </div>
-      </nav>
-      <header>
+                <header>
         <div class="row">
-          <div class="col-4">
+          <div class="col-5">
             <span class="title" id="city"> </span> <br />
-            <span class="current-date" id="date"></span>
+            <span class="current-date" id="date"> </span>
           </div>
           <div class="col-4">
             <i class="fa-solid fa-sun big"></i>
-            <span class="title" id="current-temperature">
-              <sup>
-                <small>
-                  °C
-                </small></sup
-              >
-            </span>
+            <span class="temperature" id="current-temperature"> </span><sup>℃ | ℉</sup>
           </div>
-          <div class="col-4">
+          <div class="col-3, weather-details">
             <span id="general-description"> </span> <br />
             Humidity: <span id="humidity"> </span>%<br />
             Wind: <span id="wind"> </span>km/h
@@ -117,9 +104,11 @@
             </div>
           </div>
         </div>
+        </div>
+        <hr />
         <footer> <a href="https://github.com/Tamara-Humeniuk/Weather-app" target="_blank">Open-source code</a> by Tamara Humeniuk </footer>
       </div>
-    </div>
+          </div>
     <script src="src/index.js"></script>
   </body>
 </html>
