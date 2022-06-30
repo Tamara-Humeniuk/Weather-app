@@ -24,6 +24,7 @@ function startData(city) {
 startData("Kyiv");
 ///////
 function showWeather(response) {
+  let icon = document.querySelector("#main-icon");
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector(`#current-temperature`).innerHTML = Math.round(
     response.data.main.temp
@@ -31,32 +32,19 @@ function showWeather(response) {
   document.querySelector("#general-description").innerHTML =
     response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-}
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  icon.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  }
 ////////
 function submit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   startData(city);
 }
-///////////
-function searchLocationWeather(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = `e545aeed06ed7e6ec4ac2e056f514d15`;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(showWeather);
-}
-//////
-function findLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocationWeather);
-}
+
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", submit);
-let locationButton = document.querySelector("#location-button");
-locationButton.addEventListener("click", findLocation);
+
 
 ///////////

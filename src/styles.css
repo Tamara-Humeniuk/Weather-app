@@ -43,15 +43,19 @@ button {
   border-radius: 6px;
 }
 .title {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 500;
   line-height: 1.3;
 }
 .current-date {
-font-size: 20px;  
+font-size: 18px;  
+}
+.main-icon {
+  position: relative;
+  top: -10px
 }
 .temperature {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 500;
   line-height: 1;
 }
@@ -59,7 +63,7 @@ sup {
   font-size: larger;
   font-weight: bold;
   position: relative;
-  top: -30px;
+  top: -24px;
 }
 
 .big {
@@ -67,7 +71,7 @@ sup {
   color: #ff9869;
 }
 .weather-details {
-  font-size: 20px;
+  font-size: 18px;
 }
 .card {
  border-radius: 20px;
