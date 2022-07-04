@@ -3,7 +3,7 @@
   <head>
     <title>Weather App</title>
     <meta charset="UTF-8" />
-    
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,98 +17,53 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link link rel="stylesheet" href="src/styles.css" />
   </head>
-
   <body>
     <div class="container">
       <div class="app">
-           <form role="search" id="city-form">
-            <input
-              type="search"
-              placeholder="Type city"
-              aria-label="Search"
-              id="city-input"
-            />
-            <button type="submit">
-              🔍 Search
-            </button>
-          </form>
-                <header>
-        <div class="row">
-          <div class="col-5">
-            <span class="title" id="city"> </span> <br />
-            <span class="current-date" id="date"> </span>
-          </div>
-          <div class="col-5">
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" class="main-icon" alt="icon" id="main-icon"/>
-            <span class="temperature" id="current-temperature"> </span><sup>℃ | ℉</sup>
-          </div>
-          <div class="col-2, weather-details">
-            <span id="general-description"> </span> <br />
-            Humidity: <span id="humidity"> </span>%<br />
-            Wind: <span id="wind"> </span>km/h
-          </div>
-        </div>
-      </header>
-      <div class="row">
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <i class="fa-solid fa-cloud"></i> <br />
-              23°C <br />
-              Tomorrow
+        <form role="search" id="city-form">
+          <input
+            type="search"
+            placeholder="Type city"
+            aria-label="Search"
+            id="city-input"
+          />
+          <button type="submit">🔍 Search</button>
+        </form>
+        <header>
+          <div class="row">
+            <div class="col-5">
+              <span class="title" id="city"> </span> <br />
+              <span class="current-date" id="date"> </span>
+            </div>
+            <div class="col-5">
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                class="main-icon"
+                alt="icon"
+                id="main-icon"
+              />
+              <span class="temperature" id="current-temperature"> </span
+              ><sup>℃ | ℉</sup>
+            </div>
+            <div class="col-2, weather-details">
+              <span id="general-description"> </span> <br />
+              Humidity: <span id="humidity"> </span>%<br />
+              Wind: <span id="wind"> </span>km/h
             </div>
           </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <i class="fa-solid fa-cloud"></i><br />
-              21°C <br />
-              Friday
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <i class="fa-solid fa-cloud-showers-heavy"></i> <br />
-              18°C <br />
-              Saturday
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <i class="fa-solid fa-cloud-sun"></i> <br />
-              26°C <br />
-              Sunday
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <i class="fa-solid fa-sun"></i><br />
-              28°C <br />
-              Monday
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <i class="fa-solid fa-cloud-bolt"></i><br />
-              30°C <br />
-              Tuesday
-            </div>
-          </div>
-        </div>
-        </div>
+        </header>
+        <div id="forecast"></div>
         <hr />
-        <footer> <a href="https://github.com/Tamara-Humeniuk/Weather-app" target="_blank">Open-source code</a> by Tamara Humeniuk </footer>
+        <footer>
+          <a
+            href="https://github.com/Tamara-Humeniuk/Weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Tamara Humeniuk
+        </footer>
       </div>
-          </div>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>

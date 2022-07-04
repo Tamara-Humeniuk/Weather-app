@@ -23,6 +23,32 @@ function startData(city) {
 }
 startData("Kyiv");
 ///////
+function showForecast() {
+  let currentForecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+    <div class="card">
+      <div class="card-body">
+        <img
+          src="http://openweathermap.org/img/wn/10d@2x.png"
+          class="icon"
+          alt="icon"
+        />
+        23°C <br />
+        ${day}
+      </div>
+    </div>
+  </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  currentForecast.innerHTML = forecastHTML;
+}
+//////
 function showWeather(response) {
   let icon = document.querySelector("#main-icon");
   document.querySelector("#city").innerHTML = response.data.name;
@@ -32,10 +58,15 @@ function showWeather(response) {
   document.querySelector("#general-description").innerHTML =
     response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-  icon.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  }
+}
 ////////
 function submit(event) {
   event.preventDefault();
@@ -46,5 +77,6 @@ function submit(event) {
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", submit);
 
-
 ///////////
+
+showForecast();
