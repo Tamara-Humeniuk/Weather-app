@@ -15,40 +15,60 @@ function getmydate(date) {
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = getmydate(currentTime);
-///////
-function startData(city) {
-  let apiKey = `e545aeed06ed7e6ec4ac2e056f514d15`;
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(showWeather);
+///////////////////////////////////////////
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    `Sunday`,
+    `Monday`,
+    `Tuesday`,
+    `Wednesday`,
+    `Thursday`,
+    `Friday`,
+    `Saturday`,
+  ];
+
+  return days[day];
 }
-startData("Kyiv");
-///////
-function showForecast() {
+/////////////////////////////////////
+function showForecast(response) {
+  let forecast = response.data.daily;
   let currentForecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
     <div class="card">
       <div class="card-body">
         <img
-          src="http://openweathermap.org/img/wn/10d@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           class="icon"
           alt="icon"
         />
-        23°C <br />
-        ${day}
+        ${Math.round(forecastDay.temp.day)}°C <br />
+        ${formatDay(forecastDay.dt)}
+        ${index}
       </div>
     </div>
   </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   currentForecast.innerHTML = forecastHTML;
 }
-//////
+////////////////////////////////////
+function getForecast(coordinates) {
+  let apiKey = `2889aed1023dca67262f9f447b36e26a`;
+  let ipaUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(ipaUrl).then(showForecast);
+}
+///////////////////////////////////
 function showWeather(response) {
   let icon = document.querySelector("#main-icon");
   document.querySelector("#city").innerHTML = response.data.name;
@@ -65,18 +85,23 @@ function showWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  icon.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
-////////
+//////////////////////////////////
+function startData(city) {
+  let apiKey = `2889aed1023dca67262f9f447b36e26a`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(showWeather);
+}
+//////////////////////////////////
 function submit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   startData(city);
 }
-
+//////////////////////////////////
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", submit);
 
-///////////
-
-showForecast();
+startData("Kyiv");
