@@ -42,7 +42,7 @@ function showForecast(response) {
         forecastHTML +
         `<div class="col-2">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body"${index}>
         <img
           src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
@@ -52,7 +52,7 @@ function showForecast(response) {
         />
         ${Math.round(forecastDay.temp.day)}°C <br />
         ${formatDay(forecastDay.dt)}
-        ${index}
+        
       </div>
     </div>
   </div>`;
@@ -65,7 +65,7 @@ function showForecast(response) {
 ////////////////////////////////////
 function getForecast(coordinates) {
   let apiKey = `2889aed1023dca67262f9f447b36e26a`;
-  let ipaUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let ipaUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(ipaUrl).then(showForecast);
 }
 ///////////////////////////////////
