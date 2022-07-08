@@ -80,9 +80,13 @@ sup {
 }
 .card-body {
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   padding: 5px;
 }
+.forecast-temperature {
+  font-size: 30px;
+}
+
 hr {
   margin-top: 50px;
 }
