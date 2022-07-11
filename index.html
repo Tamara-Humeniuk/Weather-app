@@ -10,12 +10,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/adf6e0e5b9.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link link rel="stylesheet" href="src/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -31,8 +27,8 @@
         </form>
         <header>
           <div class="row">
-            <div class="col-6">
-              <span class="title" id="city"> </span> <br />
+            <div class="col-5">
+              <span class="city-name" id="city"> </span> <br />
               <span class="current-date" id="date"> </span>
             </div>
             <div class="col-4">
@@ -45,7 +41,7 @@
               <span class="temperature" id="current-temperature"> </span
               ><sup>℃</sup>
             </div>
-            <div class="col-2, weather-details">
+            <div class="col-3, weather-details">
               <span id="general-description"> </span> <br />
               Humidity: <span id="humidity"> </span>%<br />
               Wind: <span id="wind"> </span>km/h
